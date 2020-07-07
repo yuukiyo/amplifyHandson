@@ -1,16 +1,7 @@
-### aws config
-```shell:~/.aws/config
-[profile c9]
-role_arn=arn:aws:iam::<aws_account_id>:role/<role-name>
-source_profile=default
-region=ap-northeast-1
-```
-
-### Metadata
-```
-<ExposeHeader>x-amz-meta-filename</ExposeHeader>
-<ExposeHeader>x-amz-meta-labels</ExposeHeader>
-<ExposeHeader>x-amz-meta-capitalletter</ExposeHeader>
-<ExposeHeader>x-amz-meta-username</ExposeHeader>
-<ExposeHeader>x-amz-meta-description</ExposeHeader>
-```
+### README
+API GatewayのIAM認証とCognitoUserpool認証、双方でLambdaに到達したときのeventの中身を比べてみた。
+結果としてcognitoの場合はjwtの中身がとれたのが大きな違い。
+つまりどのユーザー名でログインしているのかを担保できるのが大きい
+各jsonファイルを置いてあるので見て欲しい
+iam-auth.json
+cognito-auth.json

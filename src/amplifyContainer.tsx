@@ -3,14 +3,15 @@ import { AppState } from './store'
 import { AmplifyComponent } from "./amplifyComponent";
 import { Dispatch } from "redux";
 import { Actions } from "./action";
-import Amplify, { Auth } from 'aws-amplify';
+import Amplify, { Auth, API } from 'aws-amplify';
 import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);
 
 export interface ServerlessAlbumHundler {
     hundleSetCurrentSession(): void
-    hundleClickButton(): void
+    hundleClickButtonIam(): void
+    hundleClickButtonCognito(): void
 }
 
 const hundleSetCurrentSession = () => async (dispatch: Dispatch) => {
@@ -21,9 +22,39 @@ const hundleSetCurrentSession = () => async (dispatch: Dispatch) => {
         .catch(err => console.log(err));
 }
 
-const hundleClickButton = () => async () => [
-    console.log(1)
-]
+const hundleClickButtonIam = () => async () => {
+    const apiName = 'rest0707'
+    const path = '/items'
+    const myInit = {
+        // headers: {
+        //     Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`,
+        // },
+    };
+    console.log(myInit)
+    API.get(apiName, path, myInit).then(response => {
+        console.log(response)
+    })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+const hundleClickButtonCognito = () => async () => {
+    const apiName = 'cognitoauth'
+    const path = '/cognitoauth'
+    const myInit = {
+        headers: {
+            Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`,
+        },
+    };
+    console.log(myInit)
+    API.get(apiName, path, myInit).then(response => {
+        console.log(response)
+    })
+        .catch(err => {
+            console.log(err)
+        })
+}
 
 const mapStateToProps = (appState: AppState) => {
     return Object.assign({}, appState.state, {
@@ -33,5 +64,6 @@ const mapStateToProps = (appState: AppState) => {
 
 export default connect(mapStateToProps, {
     hundleSetCurrentSession,
-    hundleClickButton
+    hundleClickButtonIam,
+    hundleClickButtonCognito
 })(AmplifyComponent)

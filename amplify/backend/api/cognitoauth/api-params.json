@@ -1,0 +1,48 @@
+{
+    "paths": [
+        {
+            "name": "/cognitoauth",
+            "lambdaFunction": "cognitoauth",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            }
+        }
+    ],
+    "resourceName": "cognitoauth",
+    "apiName": "cognitoauth",
+    "functionArns": [
+        {
+            "lambdaFunction": "cognitoauth"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 1,
+        "authRoleName": "amplify-amplifyhandson-dev-122011-authRole",
+        "unAuthRoleName": "amplify-amplifyhandson-dev-122011-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "cognitoauth",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

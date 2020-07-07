@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
-import { Button, makeStyles, Typography, Fab, Theme, createStyles, AppBar, Toolbar } from '@material-ui/core'
+import { Button, makeStyles, Typography, Theme, createStyles, AppBar, Toolbar } from '@material-ui/core'
 import { State } from './reducer'
 import { ServerlessAlbumHundler } from './amplifyContainer'
 import { AmplifySignOut } from '@aws-amplify/ui-react'
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
-import AddIcon from '@material-ui/icons/Add';
 
 Amplify.configure(awsconfig);
 
@@ -34,6 +33,15 @@ const useStyles = makeStyles((theme: Theme) =>
             bottom: theme.spacing(5),
             right: theme.spacing(5),
         },
+        buttonLine: {
+            margin: 50,
+            textAlign: 'center'
+        },
+        buttonLineButton: {
+            padding: '10px 30px',
+            color: '#fff',
+            fontSize: 24
+        }
     })
 );
 
@@ -52,20 +60,26 @@ export const AmplifyComponent: React.FC<Props> = (props: Props) => {
         <>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="h6" className={classes.AppBarTitle}>Amplify Handson</Typography>
+                    <Typography variant="h6" className={classes.AppBarTitle}>API Gateway Auth Test</Typography>
                     <AmplifySignOut className={classes.SignOut} button-text="Custom Text"></AmplifySignOut>
                 </Toolbar>
             </AppBar>
-            <Fab color="secondary" className={classes.fab} aria-label="add">
+            <div className={classes.buttonLine}>
                 <Button
-                    onClick={() => props.hundleClickButton()}
-                    component="label"
-                    variant="text"
-                    className={classes.InputAddButton}
-                >
-                    <AddIcon />
-                </Button>
-            </Fab>
+                    onClick={() => props.hundleClickButtonIam()}
+                    variant="contained"
+                    color="secondary"
+                    className={classes.buttonLineButton}
+                >IAM認証</Button>
+            </div>
+            <div className={classes.buttonLine}>
+                <Button
+                    onClick={() => props.hundleClickButtonCognito()}
+                    variant="contained"
+                    color="secondary"
+                    className={classes.buttonLineButton}
+                >Cognito認証</Button>
+            </div>
         </>
     )
 }
