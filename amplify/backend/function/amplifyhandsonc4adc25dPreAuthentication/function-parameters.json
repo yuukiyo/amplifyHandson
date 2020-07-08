@@ -1,0 +1,16 @@
+{
+    "trigger": true,
+    "modules": [
+        "custom"
+    ],
+    "parentResource": "amplifyhandsonc4adc25d",
+    "functionName": "amplifyhandsonc4adc25dPreAuthentication",
+    "resourceName": "amplifyhandsonc4adc25dPreAuthentication",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerDir": "/Users/yuyoshd/.anyenv/envs/nodenv/versions/12.13.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/PreAuthentication",
+    "triggerTemplate": "PreAuthentication.json.ejs",
+    "roleName": "amplifyhandsonc4adc25dPreAuthentication",
+    "skipEdit": true,
+    "triggerEventPath": "PreAuthentication.event.json"
+}

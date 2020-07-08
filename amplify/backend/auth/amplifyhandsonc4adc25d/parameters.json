@@ -1,6 +1,6 @@
 {
-    "identityPoolName": "amplifyhandsonc4adc25d_identitypool_c4adc25d",
-    "allowUnauthenticatedIdentities": true,
+    "identityPoolName": "amplifyhandsonc4adc25d_identitypool_0f222900",
+    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "amplifc4adc25d",
     "userPoolName": "amplifyhandsonc4adc25d_userpool_c4adc25d",
     "autoVerifiedAttributes": [
@@ -47,5 +47,32 @@
     },
     "useDefault": "default",
     "userPoolGroupList": [],
-    "dependsOn": []
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "amplifyhandsonc4adc25dPostAuthentication",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "amplifyhandsonc4adc25dPreAuthentication",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ],
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{\"PostAuthentication\":[\"custom\"],\"PreAuthentication\":[\"custom\"]}",
+    "hostedUI": false,
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": []
 }

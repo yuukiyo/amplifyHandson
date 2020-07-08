@@ -1,0 +1,16 @@
+{
+    "trigger": true,
+    "modules": [
+        "custom"
+    ],
+    "parentResource": "amplifyhandsonc4adc25d",
+    "functionName": "amplifyhandsonc4adc25dPostAuthentication",
+    "resourceName": "amplifyhandsonc4adc25dPostAuthentication",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerDir": "/Users/yuyoshd/.anyenv/envs/nodenv/versions/12.13.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/PostAuthentication",
+    "triggerTemplate": "PostAuthentication.json.ejs",
+    "roleName": "amplifyhandsonc4adc25dPostAuthentication",
+    "skipEdit": true,
+    "triggerEventPath": "PostAuthentication.event.json"
+}
